@@ -1,0 +1,71 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+$colorPrimario: #ff9a00;
+$colorSecundario: #fdf001;
+$colorBordes: #0000a5;
+
+@mixin background($url) {
+  background-image: url($url);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+// @include background("aca la url");
+
+html,
+body,
+#root {
+  height: 100vh;
+}
+
+#mainHeader {
+  background-color: $colorPrimario;
+  display: flex;
+  justify-content: space-around;
+  h1 {
+    color: $colorSecundario;
+    text-shadow: -2px -2px 1px $colorBordes, 2px 2px 1px $colorBordes,
+      -2px 2px 1px $colorBordes, 2px -2px 1px $colorBordes;
+  }
+  nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    a {
+      text-decoration: none;
+      padding: 5px 10px;
+      margin: 0 1rem;
+      border: 2px solid $colorBordes;
+      border-radius: 1rem;
+      background-color: white;
+      color: black;
+      font-weight: bold;
+    }
+  }
+}
+
+#mainInicio {
+  height: 80vh;
+}
+
+#mainFooter {
+  border-top: 2px solid gray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  ul {
+    margin-top: 1rem;
+    a {
+      text-decoration: none;
+      padding: 5px 10px;
+      margin: 0 1rem;
+      color: black;
+      font-weight: bold;
+    }
+  }
+}
