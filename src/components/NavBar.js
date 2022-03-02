@@ -1,4 +1,5 @@
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import CartWidget from "./CartWidget";
 
 const NavBar = () => {
   return (
@@ -9,6 +10,7 @@ const NavBar = () => {
         <a href="#">Ofertas</a>
         <a href="#">Ayuda</a>
       </nav>
+      <CartWidget />
     </header>
   );
 };

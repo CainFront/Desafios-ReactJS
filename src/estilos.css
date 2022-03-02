@@ -47,6 +47,11 @@ body,
   font-weight: bold;
 }
 
+.iconoCarrito {
+  font-size: 2rem;
+  color: white;
+}
+
 #mainInicio {
   height: 80vh;
 }
