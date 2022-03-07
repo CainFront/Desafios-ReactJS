@@ -84,4 +84,84 @@ body,
   color: black;
   font-weight: bold;
 }
+
+.itemCount {
+  margin: 1rem;
+  border: 1px solid rgba(128, 128, 128, 0.472);
+  background-color: rgba(128, 128, 128, 0.1);
+  border-radius: 2rem;
+  width: 25rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.itemCount p {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.itemCountBtn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.itemCountBtn p {
+  border: 1px solid black;
+  width: 70%;
+  border-radius: 1rem;
+  margin-top: 15px;
+}
+
+.itemCountBtn button {
+  padding: 10px;
+}
+
+.itemCountBtn button:active {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.itemCountAgregar {
+  background: #00b7f8;
+  border-bottom: 5px solid #0045a6;
+  border-radius: 12px;
+  -webkit-box-shadow: 6px 6px 6px #999;
+          box-shadow: 6px 6px 6px #999;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  font-family: "Raleway", Arial, Helvetica;
+  font-size: 1.5rem;
+  height: 2.5rem;
+  text-align: center;
+  -webkit-transition: all 0.2s ease 0s;
+  transition: all 0.2s ease 0s;
+}
+
+.itemCountAgregar:hover {
+  background: #0096f7;
+}
+
+.itemCountAgregar:active {
+  -webkit-box-shadow: 2px 2px 2px #777, 0px 0px 15px 0px #00b7f8;
+          box-shadow: 2px 2px 2px #777, 0px 0px 15px 0px #00b7f8;
+  border-bottom: 1px solid #0045a6;
+  text-shadow: 0px 0px 5px #fff, 0px 0px 5px #fff;
+  -webkit-transition: all 0.1s ease 0s;
+  transition: all 0.1s ease 0s;
+}
 /*# sourceMappingURL=estilos.css.map */
