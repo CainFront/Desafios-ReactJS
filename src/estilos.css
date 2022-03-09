@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -11,6 +12,7 @@ body,
   height: 100vh;
 }
 
+/*HEADER - START*/
 #mainHeader {
   background-color: #ff9a00;
   display: -webkit-box;
@@ -52,10 +54,14 @@ body,
   color: white;
 }
 
+/*HEADER - END*/
+/*MAIN - START*/
 #mainInicio {
-  height: 80vh;
+  background-color: #ebebeb;
 }
 
+/*MAIN - END*/
+/*FOOTER - START*/
 #mainFooter {
   border-top: 2px solid gray;
   display: -webkit-box;
@@ -85,6 +91,8 @@ body,
   font-weight: bold;
 }
 
+/*FOOTER - END*/
+/*COUNT - START*/
 .itemCount {
   margin: 1rem;
   border: 1px solid rgba(128, 128, 128, 0.472);
@@ -164,4 +172,30 @@ body,
   -webkit-transition: all 0.1s ease 0s;
   transition: all 0.1s ease 0s;
 }
+
+/*COUNT - END*/
+/*ITEM - START*/
+#cardProducto {
+  width: 19rem;
+  padding: 1rem;
+  margin: 1rem;
+  -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+          box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+}
+
+#cardProducto .btnDetalle,
+#cardProducto .btnAñadir {
+  margin: 1rem;
+}
+
+#cardProducto .textoProducto {
+  padding: 5px;
+  text-align: center;
+  border-radius: 1rem;
+  background-color: rgba(250, 66, 66, 0.507);
+  color: white;
+  font-weight: bold;
+}
+
+/*ITEM - END*/
 /*# sourceMappingURL=estilos.css.map */

@@ -6,32 +6,22 @@ const ItemCount = ({ stock, initial, onAdd }) => {
   const [contador, setContador] = useState(initial);
 
   const sumar = () => {
-    setContador(contador + 1);
+    if (contador < stock) setContador(contador + 1);
   };
 
   const restar = () => {
-    setContador(contador - 1);
+    if (contador > initial) setContador(contador - 1);
   };
 
   return (
     <div className="itemCount">
       <p>Nokia 5200</p>
       <div className="itemCountBtn">
-        <button
-          href="#"
-          className="resta"
-          onClick={restar}
-          disabled={contador === 1}
-        >
+        <button href="#" className="resta" onClick={restar}>
           <FontAwesomeIcon icon={faMinus} />
         </button>
         <p> {contador} Unidad/es</p>
-        <button
-          href="#"
-          className="suma"
-          onClick={sumar}
-          disabled={contador === stock}
-        >
+        <button href="#" className="suma" onClick={sumar}>
           <FontAwesomeIcon icon={faPlus} />
         </button>
       </div>

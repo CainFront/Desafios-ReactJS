@@ -1,0 +1,2 @@
+codigo de itemcount en itemlistcontainer
+    <ItemCount initial={1} stock={10} onAdd={miOnAdd} />

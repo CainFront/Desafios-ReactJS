@@ -22,6 +22,7 @@ body,
   height: 100vh;
 }
 
+/*HEADER - START*/
 #mainHeader {
   background-color: $colorPrimario;
   display: flex;
@@ -47,16 +48,19 @@ body,
     }
   }
 }
-
 .iconoCarrito {
   font-size: 2rem;
   color: white;
 }
+/*HEADER - END*/
 
+/*MAIN - START*/
 #mainInicio {
-  height: 80vh;
+  background-color: #ebebeb;
 }
+/*MAIN - END*/
 
+/*FOOTER - START*/
 #mainFooter {
   border-top: 2px solid gray;
   display: flex;
@@ -74,7 +78,9 @@ body,
     }
   }
 }
+/*FOOTER - END*/
 
+/*COUNT - START*/
 .itemCount {
   margin: 1rem;
   border: 1px solid rgba(128, 128, 128, 0.472);
@@ -130,3 +136,25 @@ body,
     }
   }
 }
+/*COUNT - END*/
+
+/*ITEM - START*/
+#cardProducto {
+  width: 19rem;
+  padding: 1rem;
+  margin: 1rem;
+  box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+  .btnDetalle,
+  .btnAñadir {
+    margin: 1rem;
+  }
+  .textoProducto {
+    padding: 5px;
+    text-align: center;
+    border-radius: 1rem;
+    background-color: rgba(250, 66, 66, 0.507);
+    color: white;
+    font-weight: bold;
+  }
+}
+/*ITEM - END*/
