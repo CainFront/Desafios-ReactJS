@@ -1,2 +1,47 @@
 codigo de itemcount en itemlistcontainer
     <ItemCount initial={1} stock={10} onAdd={miOnAdd} />
+
+npm i react-toastify
+
+import {ToastContainer, toast}  from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
+
+VA TODO CON PROPS  Y FUNCIONAN COMO FUNCIONES "toast.error("aca el texto");
+
+Mirar la documentacion!!!
+
+
+React es uns SPA?? 
+
+
+CLASE 8 DESDE AHORA ABAJO
+_________________
+21:48 demos de Marilu https://tympanus.net/Development/CreativeLinkEffects/
+mirar las demos
+<link>es como un a</link>
+<navlink>igual pero se activa una clase cuando este activo "active"</navlink>
+
+____________________
+Lo que esta dentro de main que sea dinamico!! 
+_____________________
+<routes>sus hijos directos son "<route/>", tantos "route" como url</routes>
+
+____________________
+para CSS link = a, 
+______________________
+ESTO ES POCO ESCALABLE!!
+
+import Carrito from "./carrito";
+import ItemDetailContainer "./ItemDetailContainer";
+
+
+<routes>
+      <route path="/" element={ACA TAMBIEN EL ILC}/>
+      <route path="/categoria/:nombreIrrelevante element={ACA TAMBIEN EL ILC}/>
+      <route path="/carrito" element={<Carrito/>}/>   ////EJEMPLO CARRITO
+      <route path="/item/:id  element={<ItemDetailContainer/>}>    ///ACA LOS DETALLES CREO
+
+</routes>
+
+PUSO "ELEMENT" EN TODOS, hay dentro import todos los componenetes
+<ItemDetailContainer/> EN TODOS POR AHORA 22:!6 PARA NO REPETIR CODIGO EN TODOS LADOS

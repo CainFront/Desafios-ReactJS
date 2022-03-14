@@ -4,7 +4,9 @@ import CartWidget from "./CartWidget";
 const NavBar = () => {
   return (
     <header id="mainHeader">
-      <h1>DeRemate.com</h1>
+      {/* <link to="/">
+        <h1>DeRemate.com</h1>
+      </link> */}
       <nav>
         <a href="#">Categorias</a>
         <a href="#">Ofertas</a>
