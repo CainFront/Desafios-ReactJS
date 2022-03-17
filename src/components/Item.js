@@ -1,4 +1,5 @@
-import { Card, Button, CardImg, Col, Row, Container } from "react-bootstrap";
+import { Card, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const Item = ({ producto }) => {
   const { titulo, stock, precio, imagen } = producto;
@@ -10,9 +11,14 @@ const Item = ({ producto }) => {
         <Card.Text className="textoProducto">
           Quedan {stock} unidades, apurate!
         </Card.Text>
-        <Button variant="primary" className="btnDetalle">
+        <Link
+          as="Button"
+          to="/item/producto"
+          variant="primary"
+          className="btnDetalle"
+        >
           Detalles
-        </Button>
+        </Link>
         <Button variant="success" className="btnAñadir">
           $ {precio}
         </Button>

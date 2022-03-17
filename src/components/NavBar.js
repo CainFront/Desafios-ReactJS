@@ -1,18 +1,25 @@
-import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import CartWidget from "./CartWidget";
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBoltLightning } from "@fortawesome/free-solid-svg-icons";
 
 const NavBar = () => {
   return (
     <header id="mainHeader">
-      {/* <link to="/">
+      <Link to="/">
         <h1>DeRemate.com</h1>
-      </link> */}
+      </Link>
       <nav>
-        <a href="#">Categorias</a>
-        <a href="#">Ofertas</a>
-        <a href="#">Ayuda</a>
+        <Link to="/">Inicio</Link>
+        <Link to="/categoria/tendencia">Tendencia</Link>
+        <Link to="/categoria/ofertas">
+          Ofertas F<FontAwesomeIcon icon={faBoltLightning} />
+          ASH
+        </Link>
       </nav>
-      <CartWidget />
+      <Link to="carrito">
+        <CartWidget />
+      </Link>
     </header>
   );
 };

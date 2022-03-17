@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ItemDetail from "./ItemDetail";
+import { toast } from "react-toastify";
+import { listaProductos } from "./ItemListContainer";
 
 let productoUno = {
   id: 1,
@@ -32,8 +34,8 @@ const ItemDetailContainer = () => {
         setItem(resolve);
         setCargando(true);
       })
-      .catch((error) => console.log(error));
-  });
+      .catch((error) => toast.error(error));
+  }, []);
 
   if (!cargando) {
     return <div>Esperando respuesta del Servidor...</div>;

@@ -11,7 +11,7 @@ VA TODO CON PROPS  Y FUNCIONAN COMO FUNCIONES "toast.error("aca el texto");
 Mirar la documentacion!!!
 
 
-React es uns SPA?? 
+React es uns SPA??  nav y footer quedan estatico y es solo main quien cambia.
 
 
 CLASE 8 DESDE AHORA ABAJO
@@ -45,3 +45,47 @@ import ItemDetailContainer "./ItemDetailContainer";
 
 PUSO "ELEMENT" EN TODOS, hay dentro import todos los componenetes
 <ItemDetailContainer/> EN TODOS POR AHORA 22:!6 PARA NO REPETIR CODIGO EN TODOS LADOS
+
+CLASE 9
+----------------------------
+
+
+else if por las dudas
+
+else if (id == "ofertas") {const ofertas = listaProductos.filter((producto) => producto.categoria == "ofertas");setProductos(ofertas)}
+
+
+
+        COPIA DE SEGURIDAD POR LAS dudas
+
+
+        getProductos()
+      .then((resolve) => {
+        if (id == "tendencia") {
+          const tendencia = listaProductos.filter(
+            (producto) => producto.categoria == "tendencia"
+          );
+          setProductos(tendencia);
+        } else {
+          setProductos(listaProductos);
+        }
+        // setProductos(resolve);
+        // setCargando(true);
+      })
+      .catch((error) => {
+        toast.error("Error al cargar los productos ");
+      });
+  }, [id]);
+
+  if (!cargando) {
+    return <div>...Cargando</div>;
+  } else {
+    return (
+      <div className="itemContainer">
+        <ItemList productos={productos} />
+      </div>
+    );
+  }
+};
+
+export default ItemListContainer;
