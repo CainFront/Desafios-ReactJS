@@ -95,7 +95,7 @@ const ItemListContainer = () => {
     const getProductos = () => {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
-          console.log(id);
+          // console.log(id); comentado porque lo uso y no tiene sentido un toasty para esto.
           resolve(listaProductos);
         }, 2000);
       });
