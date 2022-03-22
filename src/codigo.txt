@@ -89,3 +89,38 @@ else if (id == "ofertas") {const ofertas = listaProductos.filter((producto) => p
 };
 
 export default ItemListContainer;
+
+
+
+_______________________________________________________
+clase 11
+
+const test = () => {
+
+const [toggle, setToggle] = useState(false)
+
+const toggleText = () => {
+  setToggle(!toggle)
+}
+
+return (
+  <>
+  <button onClick={toggleText}>toggle</button>
+  {toogle ? <p>true</p> : <p>false</p>}
+)
+
+MAL ESTO UN LIO
+
+
+
+
+
+
+
+
+
+
+  <button onClick={toggleText}>toggle</button>
+)
+
+}

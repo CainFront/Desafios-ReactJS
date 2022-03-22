@@ -95,11 +95,7 @@ body,
 /*FOOTER - END*/
 /*COUNT - START*/
 .itemCount {
-  margin: 1rem;
-  border: 1px solid rgba(128, 128, 128, 0.472);
-  background-color: rgba(128, 128, 128, 0.1);
-  border-radius: 2rem;
-  width: 25rem;
+  width: 90%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -113,7 +109,7 @@ body,
 
 .itemCount p {
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 600;
 }
 
@@ -130,24 +126,26 @@ body,
 
 .itemCountBtn p {
   border: 1px solid black;
-  width: 70%;
+  width: 60%;
   border-radius: 1rem;
   margin-top: 15px;
 }
 
 .itemCountBtn button {
   padding: 10px;
+  background-color: #ff9a00;
+  border-radius: 50%;
 }
 
 .itemCountBtn button:active {
-  -webkit-transform: scale(1.2);
-          transform: scale(1.2);
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .itemCountAgregar {
   background: #00b7f8;
   border-bottom: 5px solid #0045a6;
-  border-radius: 12px;
+  border-radius: 1rem;
   -webkit-box-shadow: 6px 6px 6px #999;
           box-shadow: 6px 6px 6px #999;
   color: #fff;

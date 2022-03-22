@@ -2,36 +2,25 @@ import React, { useState, useEffect } from "react";
 import ItemDetail from "./ItemDetail";
 import { toast } from "react-toastify";
 import { listaProductos } from "./ItemListContainer";
-
-let productoUno = {
-  id: 1,
-  estado: "Usado",
-  titulo: "Smart Tv 50 RCA Android UHD 4k Youtube Netflix",
-  precio: 39.999,
-  descuento: 15,
-  descripcion: "Como nuevo en caja, lo compre y nunca lo use.",
-  stock: 10,
-  fotoUno: "https://picsum.photos/300/500",
-  fotoDos: "https://picsum.photos/300/500",
-  fotoTres: "https://picsum.photos/300/500",
-};
+import { useParams } from "react-router-dom";
 
 const ItemDetailContainer = () => {
   const [item, setItem] = useState({});
   const [cargando, setCargando] = useState(false);
+  const { id } = useParams();
 
   useEffect(() => {
     const getItem = () => {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
-          resolve(productoUno);
+          resolve(listaProductos);
         }, 2000);
       });
     };
 
     getItem()
       .then((resolve) => {
-        setItem(resolve);
+        setItem(resolve.find((product) => product.id === +id));
         setCargando(true);
       })
       .catch((error) => toast.error(error));

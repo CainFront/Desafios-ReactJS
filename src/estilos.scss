@@ -83,17 +83,13 @@ body,
 
 /*COUNT - START*/
 .itemCount {
-  margin: 1rem;
-  border: 1px solid rgba(128, 128, 128, 0.472);
-  background-color: rgba(128, 128, 128, 0.1);
-  border-radius: 2rem;
-  width: 25rem;
+  width: 90%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   p {
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 600;
   }
   &Btn {
@@ -102,21 +98,24 @@ body,
     align-items: center;
     p {
       border: 1px solid black;
-      width: 70%;
+      width: 60%;
       border-radius: 1rem;
       margin-top: 15px;
     }
     button {
       padding: 10px;
+      background-color: $colorPrimario;
+      border-radius: 50%;
+
       &:active {
-        transform: scale(1.2);
+        transform: scale(1.1);
       }
     }
   }
   &Agregar {
     background: #00b7f8;
     border-bottom: 5px solid #0045a6;
-    border-radius: 12px;
+    border-radius: 1rem;
     box-shadow: 6px 6px 6px #999;
     color: #fff;
     cursor: pointer;
@@ -240,6 +239,7 @@ body,
     }
   }
 }
+
 /*ITEMDETAIL - END*/
 
 /*CARRITO - START*/

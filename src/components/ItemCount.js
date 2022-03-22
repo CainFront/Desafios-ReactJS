@@ -13,19 +13,24 @@ const ItemCount = ({ stock, initial, onAdd }) => {
     if (contador > initial) setContador(contador - 1);
   };
 
+  let agregarCarrito = () => {
+    onAdd(contador);
+  };
+
   return (
     <div className="itemCount">
-      <p>Nokia 5200</p>
       <div className="itemCountBtn">
-        <button href="#" className="resta" onClick={restar}>
+        <button className="resta" onClick={restar}>
           <FontAwesomeIcon icon={faMinus} />
         </button>
         <p> {contador} Unidad/es</p>
-        <button href="#" className="suma" onClick={sumar}>
+        <button className="suma" onClick={sumar}>
           <FontAwesomeIcon icon={faPlus} />
         </button>
       </div>
-      <button className="itemCountAgregar">Agregar al carrito</button>
+      <button className="itemCountAgregar" onClick={agregarCarrito}>
+        Agregar al carrito
+      </button>
     </div>
   );
 };

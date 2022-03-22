@@ -4,10 +4,25 @@ import {
   faTruckFast,
   faBoltLightning,
 } from "@fortawesome/free-solid-svg-icons";
+import ItemCount from "./ItemCount";
+import React, { useState } from "react";
+import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 const ItemDetail = ({ item }) => {
-  const { estado, titulo, precio, descuento, descripcion, stock, fotoUno } =
+  const { estado, titulo, precio, descuento, descripcion, stock, imagen } =
     item;
+  const [seleccionado, setSeleccionado] = useState(false);
+  const [ocultar, setOcultar] = useState(false);
+
+  const OnAdd = (unidadesCompradas) => {
+    toast.success(`Genial, has añadido ${unidadesCompradas} unidades`);
+    if (unidadesCompradas != undefined) {
+      setSeleccionado(true);
+      setOcultar(true);
+    }
+  };
+
   return (
     <Container id="itemDetail">
       <div className="productoBtn col-md-1">
@@ -25,7 +40,7 @@ const ItemDetail = ({ item }) => {
         </Button>
       </div>
       <div className="productoFoto col-md-4">
-        <img src={fotoUno} />
+        <img src={imagen} />
       </div>
       <div className="productoDato col-md-4">
         <h5 className="productoDatoEstado">{estado}</h5>
@@ -49,9 +64,16 @@ const ItemDetail = ({ item }) => {
           <h5>stock disponible:</h5>
           <h5>{stock} unidades</h5>
         </div>
-        <Button variant="warning" size="lg" className="#">
-          Comprar ahora
-        </Button>
+        {ocultar ? (
+          <Link to="/Carrito">
+            <Button className="btn btn-success btn-sm p-2 fs-2">
+              {" "}
+              Terminar Compra{" "}
+            </Button>
+          </Link>
+        ) : (
+          <ItemCount initial={1} stock={stock - seleccionado} onAdd={OnAdd} />
+        )}
       </div>
     </Container>
   );
