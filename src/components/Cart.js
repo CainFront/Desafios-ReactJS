@@ -13,13 +13,13 @@ export const Cart = () => {
   return (
     <div>
       {loading ? (
-        <h1>Loading..</h1>
+        <h1>cargando Carrito..</h1>
       ) : (
         <div>
-          <h2>Cart</h2>
+          <h2>Carrito</h2>
 
           {CartList.length < 1 ? (
-            <h2>You have no items in your shopping cart</h2>
+            <h2>Todavia no hay nada.</h2>
           ) : (
             <div>
               <div>
@@ -33,8 +33,8 @@ export const Cart = () => {
                   ))}
                 </div>
               </div>
-              <button onClick={EmptyCart}>Empty Cart</button>
-              <h2>Total: {PriceTotal()} U$D</h2>
+              <button onClick={EmptyCart}>Borrar Carrito</button>
+              <h2>Total: {PriceTotal()} $</h2>
             </div>
           )}
         </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import { UseCartContext } from "../context/CartContext";
+import { Card, Button } from "react-bootstrap";
 
 const CartItem = ({ Item, Quantity }) => {
   const { DelItem } = UseCartContext();
@@ -8,15 +9,23 @@ const CartItem = ({ Item, Quantity }) => {
   const total = precio * Quantity;
 
   return (
-    <div className="cartItemContainer">
-      <img src={imagen} alt={titulo} />
-      <h4>{titulo}</h4>
-      <h4> {Quantity} Units</h4>
-      <h4> U$D {total}</h4>
-      <button className="deleteItem" onClick={() => DelItem(id)}>
-        X
-      </button>
-    </div>
+    <Card className="cartItemContainer col-md-3">
+      <Card.Img variant="top" src={imagen} alt={titulo} />
+      <Card.Body>
+        <Card.Title className="text-center">{titulo}</Card.Title>
+        <Card.Text className="text-center">
+          ¿Solo {Quantity} unidades?
+        </Card.Text>
+        <Button
+          variant="success"
+          className="deleteItem"
+          w-100
+          onClick={() => DelItem(id)}
+        >
+          Eliminar
+        </Button>
+      </Card.Body>
+    </Card>
   );
 };
 
