@@ -1,9 +1,9 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { Link } from "react-router-dom";
 
 const ItemCount = ({ stock, initial, onAdd }) => {
   const [contador, setContador] = useState(initial);
+  const [show, setShow] = useState(true);
 
   const sumar = () => {
     if (contador < stock) setContador(contador + 1);
@@ -15,24 +15,38 @@ const ItemCount = ({ stock, initial, onAdd }) => {
 
   let agregarCarrito = () => {
     onAdd(contador);
+    setShow(false);
   };
 
-  return (
-    <div className="itemCount">
-      <div className="itemCountBtn">
-        <button className="resta" onClick={restar}>
-          <FontAwesomeIcon icon={faMinus} />
-        </button>
-        <p> {contador} Unidad/es</p>
-        <button className="suma" onClick={sumar}>
-          <FontAwesomeIcon icon={faPlus} />
-        </button>
+  if (show && stock > 0) {
+    return (
+      <div>
+        <div className="Counter">
+          {" "}
+          <button type="button" onClick={restar}>
+            -
+          </button>
+          <p className="Cantidad">Cantidad {contador}</p>
+          <button type="button" onClick={sumar}>
+            +
+          </button>
+        </div>
+        <button onClick={agregarCarrito}>Agregar al Carrito</button>
       </div>
-      <button className="itemCountAgregar" onClick={agregarCarrito}>
-        Agregar al carrito
-      </button>
-    </div>
-  );
+    );
+  }
+
+  if (stock == 0) {
+    return <p>Sin unidades disponibles</p>;
+  }
+
+  if (!show && stock > 0) {
+    return (
+      <Link to="/Cart">
+        <button>Ir al carrito</button>
+      </Link>
+    );
+  }
 };
 
 export default ItemCount;

@@ -17,7 +17,7 @@ const NavBar = () => {
           ASH
         </Link>
       </nav>
-      <Link to="carrito">
+      <Link to="/Cart">
         <CartWidget />
       </Link>
     </header>

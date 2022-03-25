@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import { listaProductos } from "./ItemListContainer";
 import { useParams } from "react-router-dom";
 
-const ItemDetailContainer = () => {
+const ItemDetailContainer = (props) => {
   const [item, setItem] = useState({});
   const [cargando, setCargando] = useState(false);
   const { id } = useParams();

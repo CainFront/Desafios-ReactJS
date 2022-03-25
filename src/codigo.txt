@@ -124,3 +124,23 @@ MAL ESTO UN LIO
 )
 
 }
+
+_------------------------------------------
+codigo resguerdo item count mio
+
+return (
+    <div className="itemCount">
+      <div className="itemCountBtn">
+        <button className="resta" onClick={restar}>
+          <FontAwesomeIcon icon={faMinus} />
+        </button>
+        <p> {contador} Unidad/es</p>
+        <button className="suma" onClick={sumar}>
+          <FontAwesomeIcon icon={faPlus} />
+        </button>
+      </div>
+      <button className="itemCountAgregar" onClick={agregarCarrito}>
+        Agregar al carrito
+      </button>
+    </div>
+  );

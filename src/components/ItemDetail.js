@@ -1,21 +1,37 @@
+import { React, useEffect, useState } from "react";
+import ItemCount from "./ItemCount";
+import { UseCartContext } from "../context/CartContext";
+import { toast } from "react-toastify";
 import { Container, Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTruckFast,
   faBoltLightning,
 } from "@fortawesome/free-solid-svg-icons";
-import ItemCount from "./ItemCount";
-import React, { useState } from "react";
-import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 
-const ItemDetail = ({ item }) => {
-  const { estado, titulo, precio, descuento, descripcion, stock, imagen } =
+function ItemDetail({ item }) {
+  const { imagen, estado, titulo, precio, descuento, descripcion, stock } =
     item;
-  const [seleccionado, setSeleccionado] = useState(false);
+
+  let addItem;
+  const { AddItem, CartList } = UseCartContext();
+  const [stock2, setStock2] = useState(stock);
   const [ocultar, setOcultar] = useState(false);
+  const [seleccionado, setSeleccionado] = useState(false);
+
+  useEffect(() => {
+    const index = CartList.findIndex((i) => i.item.id === item.id);
+    if (index > -1) {
+      const oldStock = CartList[index].cantidad;
+      setStock2(oldStock > stock ? 0 : stock - oldStock);
+    } else {
+      setStock2(stock);
+    }
+  });
 
   const OnAdd = (unidadesCompradas) => {
+    addItem(item, unidadesCompradas);
     toast.success(`Genial, has añadido ${unidadesCompradas} unidades`);
     if (unidadesCompradas != undefined) {
       setSeleccionado(true);
@@ -65,18 +81,18 @@ const ItemDetail = ({ item }) => {
           <h5>{stock} unidades</h5>
         </div>
         {ocultar ? (
-          <Link to="/Carrito">
-            <Button className="btn btn-success btn-sm p-2 fs-2">
+          <Link to="/Cart">
+            <Button className="btn btn-success btn-sm fs-4">
               {" "}
               Terminar Compra{" "}
             </Button>
           </Link>
         ) : (
-          <ItemCount initial={1} stock={stock - seleccionado} onAdd={OnAdd} />
+          <ItemCount initial={1} stock={stock} onAdd={OnAdd} />
         )}
       </div>
     </Container>
   );
-};
+}
 
 export default ItemDetail;
