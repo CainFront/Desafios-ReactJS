@@ -26,7 +26,7 @@ const CartContextProvider = ({ children }) => {
   };
 
   const PriceTotal = () => {
-    return CartList.reduce((acum, i) => acum + i.cantidad * i.item.price, 0);
+    return CartList.reduce((acum, i) => acum + i.cantidad * i.item.precio, 0);
   };
 
   const DelItem = (id) => {

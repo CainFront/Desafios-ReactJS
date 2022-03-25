@@ -16,6 +16,7 @@ const CartItem = ({ Item, Quantity }) => {
         <Card.Text className="text-center">
           ¿Solo {Quantity} unidades?
         </Card.Text>
+        <Card.Text className="text-center">Son: ${total}</Card.Text>
         <div className="bg-dark p-1">
           <CloseButton
             onClick={() => DelItem(id)}
