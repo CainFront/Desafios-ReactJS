@@ -8,16 +8,13 @@ import {
   faTruckFast,
   faBoltLightning,
 } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
 
 function ItemDetail({ item }) {
   const { imagen, estado, titulo, precio, descuento, descripcion, stock } =
     item;
 
-  let addItem;
   const { AddItem, CartList } = UseCartContext();
   const [stock2, setStock2] = useState(stock);
-  const [ocultar, setOcultar] = useState(false);
   const [seleccionado, setSeleccionado] = useState(false);
 
   useEffect(() => {
@@ -30,13 +27,9 @@ function ItemDetail({ item }) {
     }
   });
 
-  const OnAdd = (unidadesCompradas) => {
-    addItem(item, unidadesCompradas);
-    toast.success(`Genial, has añadido ${unidadesCompradas} unidades`);
-    if (unidadesCompradas != undefined) {
-      setSeleccionado(true);
-      setOcultar(true);
-    }
+  // antes tenia cantidad como "unidadesCompradas"
+  const onAdd = (cantidad) => {
+    AddItem(item, cantidad);
   };
 
   return (
@@ -80,16 +73,7 @@ function ItemDetail({ item }) {
           <h5>stock disponible:</h5>
           <h5>{stock} unidades</h5>
         </div>
-        {ocultar ? (
-          <Link to="/Cart">
-            <Button className="btn btn-success btn-sm fs-4">
-              {" "}
-              Terminar Compra{" "}
-            </Button>
-          </Link>
-        ) : (
-          <ItemCount initial={1} stock={stock} onAdd={OnAdd} />
-        )}
+        <ItemCount initial={1} stock={stock} onAdd={onAdd} />
       </div>
     </Container>
   );
