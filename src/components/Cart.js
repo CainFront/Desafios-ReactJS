@@ -1,6 +1,7 @@
 import { React, useState } from "react";
 import { UseCartContext } from "../context/CartContext";
 import CartItem from "./CartItem";
+import { Button } from "react-bootstrap";
 
 export const Cart = () => {
   const { CartList, EmptyCart, PriceTotal } = UseCartContext();
@@ -13,9 +14,9 @@ export const Cart = () => {
   return (
     <div>
       {loading ? (
-        <h1>cargando Carrito..</h1>
+        <h2>cargando Carrito..</h2>
       ) : (
-        <div>
+        <div className="carritoFlex">
           <h2>Carrito</h2>
 
           {CartList.length < 1 ? (
@@ -33,8 +34,13 @@ export const Cart = () => {
                   ))}
                 </div>
               </div>
-              <button onClick={EmptyCart}>Borrar Carrito</button>
-              <h2>Total: {PriceTotal()} $</h2>
+              <div className="d-grid gap-2">
+                {" "}
+                <Button onClick={EmptyCart} variant="danger" size="lg">
+                  Borrar Carrito
+                </Button>
+              </div>
+              ;<h2>Total: {PriceTotal()} $</h2>
             </div>
           )}
         </div>
