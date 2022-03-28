@@ -30,6 +30,7 @@ function ItemDetail({ item }) {
   // antes tenia cantidad como "unidadesCompradas"
   const onAdd = (cantidad) => {
     AddItem(item, cantidad);
+    toast.success(`Perfecto,${cantidad} unidades en el carrito`);
   };
 
   return (

@@ -2,6 +2,7 @@ import { React, useState } from "react";
 import { UseCartContext } from "../context/CartContext";
 import CartItem from "./CartItem";
 import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 export const Cart = () => {
   const { CartList, EmptyCart, PriceTotal } = UseCartContext();
@@ -20,7 +21,14 @@ export const Cart = () => {
           <h2>Carrito</h2>
 
           {CartList.length < 1 ? (
-            <h2>Todavia no hay nada.</h2>
+            <>
+              <h2>Todavia no hay nada.</h2>
+              <Link to="/">
+                <Button variant="warning" size="lg" className="m-3">
+                  VOLVER A COMPRAR
+                </Button>
+              </Link>
+            </>
           ) : (
             <div>
               <div>

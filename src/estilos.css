@@ -55,6 +55,25 @@ body,
   color: white;
 }
 
+.cartNavBar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.cartNavBar h4 {
+  text-align: center;
+  padding-left: 1rem;
+  color: black;
+  text-shadow: -2px -2px 1px white, 2px 2px 1px white, -2px 2px 1px white, 2px -2px 1px white;
+}
+
 /*HEADER - END*/
 /*MAIN - START*/
 #mainInicio {
@@ -325,10 +344,25 @@ body,
 }
 
 /*ITEMDETAIL - END*/
-/*CARRITO - START*/
-.contruccion {
-  width: 80vw;
+.cartItemContainer {
+  -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+          box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+  margin: 1rem;
 }
 
-/*CARRITO - END*/
+.carritoFlex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
 /*# sourceMappingURL=estilos.css.map */

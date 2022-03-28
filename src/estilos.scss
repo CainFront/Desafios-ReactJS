@@ -53,6 +53,19 @@ body,
   font-size: 2rem;
   color: white;
 }
+
+.cartNavBar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h4 {
+    text-align: center;
+    padding-left: 1rem;
+    color: black;
+    text-shadow: -2px -2px 1px white, 2px 2px 1px white, -2px 2px 1px white,
+      2px -2px 1px white;
+  }
+}
 /*HEADER - END*/
 
 /*MAIN - START*/
