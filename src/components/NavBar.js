@@ -1,7 +1,5 @@
 import CartWidget from "./CartWidget";
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBoltLightning } from "@fortawesome/free-solid-svg-icons";
 import { UseCartContext } from "../context/CartContext";
 
 const NavBar = () => {
@@ -18,12 +16,9 @@ const NavBar = () => {
         <h1>DeRemate.com</h1>
       </Link>
       <nav>
-        <Link to="/">Inicio</Link>
-        <Link to="/categoria/tendencia">Tendencia</Link>
-        <Link to="/categoria/ofertas">
-          Ofertas F<FontAwesomeIcon icon={faBoltLightning} />
-          ASH
-        </Link>
+        <Link to="/">Todos</Link>
+        <Link to="/serie/Super Mario">Super Mario</Link>
+        <Link to="/serie/Star Wars">Star Wars</Link>
       </nav>
       {CartList.length < 1 ? (
         <></>

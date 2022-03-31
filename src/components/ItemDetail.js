@@ -10,15 +10,14 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 function ItemDetail({ item }) {
-  const { imagen, estado, titulo, precio, descuento, descripcion, stock } =
-    item;
+  const { imagen, nombre, precio, descripcion, stock, serie } = producto;
 
   const { AddItem, CartList } = UseCartContext();
   const [stock2, setStock2] = useState(stock);
   const [seleccionado, setSeleccionado] = useState(false);
 
   useEffect(() => {
-    const index = CartList.findIndex((i) => i.item.id === item.id);
+    const index = CartList.findIndex((i) => i.producto.id === producto.id);
     if (index > -1) {
       const oldStock = CartList[index].cantidad;
       setStock2(oldStock > stock ? 0 : stock - oldStock);
@@ -29,7 +28,7 @@ function ItemDetail({ item }) {
 
   // antes tenia cantidad como "unidadesCompradas"
   const onAdd = (cantidad) => {
-    AddItem(item, cantidad);
+    AddItem(producto, cantidad);
     toast.success(`Perfecto,${cantidad} unidades en el carrito`);
   };
 
@@ -53,11 +52,8 @@ function ItemDetail({ item }) {
         <img src={imagen} />
       </div>
       <div className="productoDato col-md-4">
-        <h5 className="productoDatoEstado">{estado}</h5>
-        <h2 className="productoDatoTitulo">{titulo}</h2>
-        <div className="productoDatoPrecio">
-          $ {precio} <span>{descuento}% OFF</span>
-        </div>
+        <h2 className="productoDatoTitulo">{nombre}</h2>
+        <div className="productoDatoPrecio">$ {precio}</div>
         <div className="productoDatoEspecificaciones">
           <h5>Descripción:</h5>
           <p>{descripcion}</p>
@@ -74,7 +70,7 @@ function ItemDetail({ item }) {
           <h5>stock disponible:</h5>
           <h5>{stock} unidades</h5>
         </div>
-        <ItemCount initial={1} stock={stock} onAdd={onAdd} />
+        {/* <ItemCount initial={1} stock={stock} onAdd={onAdd} /> */}
       </div>
     </Container>
   );
