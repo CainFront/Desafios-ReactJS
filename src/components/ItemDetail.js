@@ -8,23 +8,11 @@ import {
   faTruckFast,
   faBoltLightning,
 } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 function ItemDetail({ objeto }) {
-  const { AddItem, CartList } = UseCartContext();
-  // const [stock2, setStock2] = useState( objeto.stock);
-  // const [seleccionado, setSeleccionado] = useState(false);
+  const { AddItem } = UseCartContext();
 
-  // useEffect(() => {
-  //   const index = CartList.findIndex((i) => i.item.id === item.id);
-  //   if (index > -1) {
-  //     const oldStock = CartList[index].cantidad;
-  //     setStock2(oldStock > stock ? 0 : stock - oldStock);
-  //   } else {
-  //     setStock2(stock);
-  //   }
-  // });
-
-  // antes tenia cantidad como "unidadesCompradas"
   const onAdd = (cantidad) => {
     AddItem(objeto, cantidad);
     toast.success(`Perfecto,${cantidad} unidades en el carrito`);
@@ -51,7 +39,7 @@ function ItemDetail({ objeto }) {
       </div>
       <div className="productoDato col-md-4">
         <h2 className="productoDatoTitulo">{objeto.nombre}</h2>
-        <div className="productoDatoPrecio">$ {objeto.precio}</div>
+        <div className="productoDatoPrecio">USD {objeto.precio}</div>
         <div className="productoDatoEspecificaciones">
           <h5>Descripción:</h5>
           <p>{objeto.descripcion}</p>
@@ -68,7 +56,10 @@ function ItemDetail({ objeto }) {
           <h5>stock disponible:</h5>
           <h5>{objeto.stock} unidades</h5>
         </div>
-        {/* <ItemCount initial={1} stock={objeto.stock} onAdd={onAdd} /> */}
+        <ItemCount initial={1} stock={objeto.stock} onAdd={onAdd} />
+        <Link to="/Cart">
+          <button>Ir al carrito</button>
+        </Link>
       </div>
     </Container>
   );

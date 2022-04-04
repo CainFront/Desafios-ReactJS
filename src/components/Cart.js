@@ -48,7 +48,7 @@ export const Cart = () => {
                   Borrar Carrito
                 </Button>
               </div>
-              ;<h2>Total: {PriceTotal()} $</h2>
+              ;<h2>Total: {PriceTotal()} USD</h2>
             </div>
           )}
         </div>

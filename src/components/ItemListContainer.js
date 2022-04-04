@@ -21,8 +21,11 @@ const ItemListContainer = () => {
 
       documentos
         .then((respuesta) =>
-          setProductos(respuesta.docs.map((doc) => doc.data()))
+          setProductos(
+            respuesta.docs.map((doc) => ({ producto: doc.data(), id: doc.id }))
+          )
         )
+
         .catch((error) => toast.error("Error al obtener los legos"))
         .finally(() => setLoading(false));
     } else {
@@ -32,7 +35,9 @@ const ItemListContainer = () => {
 
       documentos
         .then((respuesta) =>
-          setProductos(respuesta.docs.map((doc) => doc.data()))
+          setProductos(
+            respuesta.docs.map((doc) => ({ producto: doc.data(), id: doc.id }))
+          )
         )
         .catch((error) => toast.error("Error al obtener los legos"))
         .finally(() => setLoading(false));
