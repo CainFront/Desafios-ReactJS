@@ -11,6 +11,7 @@ import {
 import { Link } from "react-router-dom";
 import { dbFirebase } from "./firebase";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { toast } from "react-toastify";
 
 export const Cart = () => {
   const { CartList, EmptyCart, PriceTotal } = UseCartContext();
@@ -34,6 +35,13 @@ export const Cart = () => {
 
     const pedidosCollection = collection(dbFirebase, "ordenes");
     const pedido = addDoc(pedidosCollection, orden);
+
+    pedido.then((res) => {
+      toast.info(`Perfecto tu orden de compra es: ${res.id}`);
+    });
+
+    // Esto borra al terminar la compra "solo de ejemplo borrar despues"
+    EmptyCart();
   };
 
   return (
