@@ -1,8 +1,16 @@
 import { React, useState } from "react";
 import { UseCartContext } from "../context/CartContext";
 import CartItem from "./CartItem";
-import { Button } from "react-bootstrap";
+import {
+  Button,
+  Modal,
+  ModalBody,
+  ModalTitle,
+  ModalFooter,
+} from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { dbFirebase } from "./firebase";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 
 export const Cart = () => {
   const { CartList, EmptyCart, PriceTotal } = UseCartContext();
@@ -11,6 +19,22 @@ export const Cart = () => {
   setTimeout(() => {
     setLoading(false);
   }, 2000);
+
+  const confirmarCompra = () => {
+    const orden = {
+      buyer: {
+        nombre: "Cain",
+        telefono: "Caamiña",
+        email: "ejemplo@gmail.com",
+      },
+      items: CartList,
+      date: serverTimestamp(),
+      total: PriceTotal(),
+    };
+
+    const pedidosCollection = collection(dbFirebase, "ordenes");
+    const pedido = addDoc(pedidosCollection, orden);
+  };
 
   return (
     <div>
@@ -46,6 +70,9 @@ export const Cart = () => {
                 {" "}
                 <Button onClick={EmptyCart} variant="danger" size="lg">
                   Borrar Carrito
+                </Button>
+                <Button onClick={confirmarCompra} variant="success" size="lg">
+                  Confirmar Compra
                 </Button>
               </div>
               ;<h2>Total: {PriceTotal()} USD</h2>
