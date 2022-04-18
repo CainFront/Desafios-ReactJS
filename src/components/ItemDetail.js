@@ -1,14 +1,7 @@
-import { React, useEffect, useState } from "react";
 import ItemCount from "./ItemCount";
 import { UseCartContext } from "../context/CartContext";
 import { toast } from "react-toastify";
-import { Container, Button } from "react-bootstrap";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faTruckFast,
-  faBoltLightning,
-} from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+import { Col } from "react-bootstrap";
 
 function ItemDetail({ objeto }) {
   const { AddItem } = UseCartContext();
@@ -19,49 +12,26 @@ function ItemDetail({ objeto }) {
   };
 
   return (
-    <Container id="itemDetail">
-      <div className="productoBtn col-md-1">
-        <Button variant="outline-dark" size="sm" className="p-3 m-3">
-          1
-        </Button>
-        <Button variant="outline-dark" size="sm" className="p-3 m-3">
-          2
-        </Button>
-        <Button variant="outline-dark" size="sm" className="p-3 m-3">
-          3
-        </Button>
-        <Button variant="outline-dark" size="sm" className="p-3 m-3">
-          4
-        </Button>
-      </div>
-      <div className="productoFoto col-md-4">
-        <img src={objeto.imagen} />
-      </div>
-      <div className="productoDato col-md-4">
-        <h2 className="productoDatoTitulo">{objeto.nombre}</h2>
-        <div className="productoDatoPrecio">USD {objeto.precio}</div>
-        <div className="productoDatoEspecificaciones">
+    <div className="itemDetail">
+      <Col sm={4} className="itemDetailFilaUno">
+        <h2 className="itemDetailTitulo">{objeto.nombre}</h2>
+        <img className="itemDetailImagen" src={objeto.imagen} />
+      </Col>
+      <Col sm={8} className="itemDetailFilaDos">
+        <h3 className="itemDetailPrecio">
+          Precio:<span>${objeto.precio},00</span>
+        </h3>
+        <ItemCount initial={1} stock={objeto.stock} onAdd={onAdd} />
+        <div className="itemDetailDescripcion">
           <h5>Descripción:</h5>
           <p>{objeto.descripcion}</p>
         </div>
-      </div>
-      <div className="productoEnvio col-md-3">
-        <div className="productoEnvioDescripcion">
-          <p>
-            <FontAwesomeIcon icon={faTruckFast} /> Envio Gratis a todo el pais{" "}
-            <FontAwesomeIcon icon={faBoltLightning} /> <span>FULL</span>
-          </p>
-        </div>
-        <div className="productoEnvioStock">
-          <h5>stock disponible:</h5>
-          <h5>{objeto.stock} unidades</h5>
-        </div>
-        <ItemCount initial={1} stock={objeto.stock} onAdd={onAdd} />
-        <Link to="/Cart">
-          <button>Ir al carrito</button>
-        </Link>
-      </div>
-    </Container>
+        <h5 className="itemDetailStock">
+          Stock: <span> {objeto.stock} unidades</span>
+        </h5>
+        <h6>LEGO® {objeto.serie}</h6>
+      </Col>
+    </div>
   );
 }
 

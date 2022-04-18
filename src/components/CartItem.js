@@ -1,6 +1,6 @@
 import React from "react";
 import { UseCartContext } from "../context/CartContext";
-import { Card, CloseButton } from "react-bootstrap";
+import { CloseButton, Col } from "react-bootstrap";
 
 const CartItem = ({ Item, Quantity }) => {
   const { DelItem } = UseCartContext();
@@ -9,23 +9,27 @@ const CartItem = ({ Item, Quantity }) => {
   const total = precio * Quantity;
 
   return (
-    <Card className="cartItemContainer col-md-3" style={{ width: "18rem" }}>
-      <Card.Img variant="top" src={imagen} alt={titulo} />
-      <Card.Body>
-        <Card.Title className="text-center">{titulo}</Card.Title>
-        <Card.Text className="text-center">
-          ¿Solo {Quantity} unidades?
-        </Card.Text>
-        <Card.Text className="text-center">Son: USD {total}</Card.Text>
-        <div className="bg-dark p-1">
-          <CloseButton
-            onClick={() => DelItem(id)}
-            variant="white"
-            aria-label="Hide"
-          />
+    <Col sm={5} className="cartItem">
+      <div className="cartItemImg">
+        <img src={imagen} alt={titulo} />
+      </div>
+      <div className="cartItemNumeros">
+        <div>
+          <p>Unidades</p>
+          <span>{Quantity}</span>
         </div>
-      </Card.Body>
-    </Card>
+        <div>
+          <p>Precio</p>
+          <span>${total}.00</span>
+        </div>
+        <CloseButton
+          onClick={() => DelItem(id)}
+          variant="white"
+          aria-label="Hide"
+          className="botonBorrar"
+        />
+      </div>
+    </Col>
   );
 };
 

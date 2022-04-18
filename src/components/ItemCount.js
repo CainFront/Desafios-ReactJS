@@ -1,4 +1,8 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 const ItemCount = ({ stock, initial, onAdd }) => {
   const [contador, setContador] = useState(initial);
@@ -16,18 +20,27 @@ const ItemCount = ({ stock, initial, onAdd }) => {
   };
 
   return (
-    <div>
-      <div className="Counter">
+    <div className="itemCount">
+      <div className="itemCountContador">
         {" "}
-        <button type="button" onClick={restar}>
+        <Button type="button" variant="danger" onClick={restar}>
           -
-        </button>
-        <p className="Cantidad">Cantidad {contador}</p>
-        <button type="button" onClick={sumar}>
+        </Button>
+        <p className="itemCountContadorCantidad">{contador}</p>
+        <Button type="button" variant="success" onClick={sumar}>
           +
-        </button>
+        </Button>
       </div>
-      <button onClick={agregarCarrito}>Agregar al Carrito</button>
+      <div className="itemCountBotones">
+        <button onClick={agregarCarrito} className="itemCountAgregar">
+          Agregar al Carrito
+        </button>
+        <Link to="/Cart">
+          <button className="itemCountIr">
+            Ir al carrito <FontAwesomeIcon icon={faArrowRight} />
+          </button>
+        </Link>
+      </div>
     </div>
   );
 };

@@ -1,29 +1,35 @@
-import { Card, Button } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { Col } from "react-bootstrap";
 
 const Item = ({ productos }) => {
   const { producto, id } = productos;
   return (
-    <Card id="cardProducto" className="col-md-4">
-      <Card.Img variant="top" src={producto.imagen} alt={producto.nombre} />
-      <Card.Body>
-        <Card.Title className="text-center">{producto.nombre}</Card.Title>
-        <Card.Text className="textoProducto">
-          Quedan {producto.stock} unidades, apurate!
-        </Card.Text>
-        <Link
-          as="Button"
-          to={`/objeto/${id}`}
-          variant="primary"
-          className="btnDetalle"
-        >
-          Detalles
-        </Link>
-        <Button variant="success" className="btnAñadir">
-          USD {producto.precio}
-        </Button>
-      </Card.Body>
-    </Card>
+    <Col sm={3}>
+      <Card id="cardProducto">
+        <Card.Img
+          variant="top"
+          className="cardImg"
+          src={producto.imagen}
+          alt={producto.nombre}
+        />
+        <Card.Body className="textoProducto">
+          <Card.Text className="textoProductoSerie">
+            LEGO® {producto.serie}
+          </Card.Text>
+          <Card.Title className="text-center textoProductoTitulo">
+            {producto.nombre}
+          </Card.Title>
+          <Link to={`/objeto/${id}`}>
+            <button className="btnDetalle">
+              Detalles <FontAwesomeIcon icon={faArrowRight} />
+            </button>
+          </Link>
+        </Card.Body>
+      </Card>
+    </Col>
   );
 };
 

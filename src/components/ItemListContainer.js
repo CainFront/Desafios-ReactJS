@@ -5,8 +5,6 @@ import { toast } from "react-toastify";
 import { dbFirebase } from "./firebase";
 import { getDocs, collection, query, where } from "firebase/firestore";
 
-// getDocs - getDoc - detCollection - addDoc - updateDoc - delateDoc
-
 const ItemListContainer = () => {
   const [loading, setLoading] = useState(true);
   const [productos, setProductos] = useState([]);
@@ -46,7 +44,15 @@ const ItemListContainer = () => {
 
   return (
     <>
-      <p>{loading ? "Cargando..." : " "}</p>
+      <p>
+        {loading ? (
+          <div className="boxSpinner">
+            <div className="spinner"></div>
+          </div>
+        ) : (
+          " "
+        )}
+      </p>
       <ItemList productos={productos} />
     </>
   );
