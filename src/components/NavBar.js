@@ -63,7 +63,7 @@ const NavBar = () => {
             <Link to="/serie/Star Wars">
               <div className="btnSecciones">
                 <img
-                  alt="superMario"
+                  alt="starWars"
                   src={starWars}
                   width="60"
                   height="60"
@@ -72,10 +72,10 @@ const NavBar = () => {
                 <span>Star Wars</span>
               </div>
             </Link>
-            <Link to="/serie/Star Wars">
+            <Link to="/serie/Harry Potter">
               <div className="btnSecciones">
                 <img
-                  alt="superMario"
+                  alt="harryPotter"
                   src={harryPotter}
                   width="60"
                   height="60"
@@ -84,10 +84,10 @@ const NavBar = () => {
                 <span>Harry Potter</span>
               </div>
             </Link>
-            <Link to="/serie/Star Wars">
+            <Link to="/serie/Minecraft">
               <div className="btnSecciones">
                 <img
-                  alt="superMario"
+                  alt="Minecraft"
                   src={minecraft}
                   width="60"
                   height="60"
@@ -96,10 +96,10 @@ const NavBar = () => {
                 <span>Minecraft</span>
               </div>
             </Link>
-            <Link to="/serie/Star Wars">
+            <Link to="/serie/Marvel">
               <div className="btnSecciones">
                 <img
-                  alt="superMario"
+                  alt="Marvel"
                   src={marvel}
                   width="60"
                   height="60"
@@ -108,22 +108,16 @@ const NavBar = () => {
                 <span>Marvel</span>
               </div>
             </Link>
-            <Link to="/serie/Star Wars">
+            <Link to="/serie/DC">
               <div className="btnSecciones">
-                <img
-                  alt="superMario"
-                  src={dc}
-                  width="60"
-                  height="60"
-                  className=""
-                />
+                <img alt="DC" src={dc} width="60" height="60" className="" />
                 <span>DC Comics</span>
               </div>
             </Link>
-            <Link to="/serie/Star Wars">
+            <Link to="/serie/Disney">
               <div className="btnSecciones">
                 <img
-                  alt="superMario"
+                  alt="disney"
                   src={disney}
                   width="60"
                   height="60"
@@ -132,10 +126,10 @@ const NavBar = () => {
                 <span>Disney</span>
               </div>
             </Link>
-            <Link to="/serie/Star Wars">
+            <Link to="/serie/Jurassic World">
               <div className="btnSecciones">
                 <img
-                  alt="superMario"
+                  alt="JurassicWorld"
                   src={jurassicWorld}
                   width="60"
                   height="60"
@@ -144,10 +138,10 @@ const NavBar = () => {
                 <span>Jurassic World</span>
               </div>
             </Link>
-            <Link to="/serie/Star Wars">
+            <Link to="/serie/Batman">
               <div className="btnSecciones">
                 <img
-                  alt="superMario"
+                  alt="batman"
                   src={batman}
                   width="60"
                   height="60"

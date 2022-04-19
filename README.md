@@ -41,6 +41,8 @@ A continuación se muestra un diagrama de flujo que muestra la estructura genera
 
 A continuación se muestra un video del proceso completo de funcionamiento, el mismo sera realizado siguiendo el "Modo de uso".
 
+![ video de funcionamiento ](src/assets/img/legoArg.gif)
+
 ## Galeria de Imagenes
 
 En la misma se desarrollara mediante images el paso a paso del "Modo de uso".
